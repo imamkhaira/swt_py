@@ -7,16 +7,23 @@ class App(Tk):
     def __init__(self):
         Tk.__init__(self)
         self.content = Home(self)
-        self.content.grid()
-        self.previous_content = []
+        self.content.grid(row=1, column=1)
+        self.previous = []
         self.title("Stroke-Width Transform")
         log("program started")
 
     def switch_frame(self, new_frame:Frame):
-        self.content.grid_forget()
-        self.previous_content.append(self.content)
+        self.content.destroy()
+        self.previous.append(self.content)
         self.content = new_frame
-        self.content.grid()
+        self.content.grid(row=1, column=1)
+        log("frame switch success")
+
+    def back_frame(self):
+        self.content.destroy()
+        #new_frame = self.previous.pop()
+        #self.content = new_frame
+        #self.content.grid(row=1, column=1)
         log("frame switch success")
 
 

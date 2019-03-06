@@ -2,13 +2,14 @@ from tkinter import *
 from PIL import Image, ImageTk
 from datastruct.ImageLabel import ImageLabel
 from Debug import *
+from screen.Learn import Learn
 from datastruct.SwtImage import SwtImage
 import cv2
 
 
 class HomeController:
     def __init__(self, parent_window):
-        self.parent_window = None
+        self.parent_window = parent_window
         log("loaded home controller")
 
     def exit(self):
@@ -18,8 +19,11 @@ class HomeController:
     def launch_recognition(self):
         log("launching recognition")
 
+
     def launch_learning(self):
         log("launching learning")
+        self.parent_window.switch_frame(Learn(self.parent_window))
+
 
     def launch_database(self):
         log("launching database")
