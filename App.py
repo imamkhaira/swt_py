@@ -13,17 +13,16 @@ class App(Tk):
         log("program started")
 
     def switch_frame(self, new_frame:Frame):
-        self.content.destroy()
+        self.content.grid_forget()
         self.previous.append(self.content)
         self.content = new_frame
         self.content.grid(row=1, column=1)
         log("frame switch success")
 
     def back_frame(self):
-        self.content.destroy()
-        #new_frame = self.previous.pop()
-        #self.content = new_frame
-        #self.content.grid(row=1, column=1)
+        self.content.grid_forget()
+        self.content = self.previous.pop()
+        self.content.grid(row=1, column=1)
         log("frame switch success")
 
 

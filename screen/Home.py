@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 from datastruct.ImageLabel import ImageLabel
 from Debug import *
 from screen.Learn import Learn
+from screen.Recognition import Recognition
 from datastruct.SwtImage import SwtImage
 import cv2
 
@@ -18,11 +19,12 @@ class HomeController:
 
     def launch_recognition(self):
         log("launching recognition")
+        self.parent_window.switch_frame(Learn(self.parent_window))
 
 
     def launch_learning(self):
         log("launching learning")
-        self.parent_window.switch_frame(Learn(self.parent_window))
+        self.parent_window.switch_frame(Recognition(self.parent_window))
 
 
     def launch_database(self):

@@ -5,7 +5,7 @@ from cv2 import *
 
 
 class ImageLabel(Label):
-    def __init__(self, parent_window: Frame, image_pil):
+    def __init__(self, parent_window: Frame, image_pil: Image.open):
         self.imagePIL = image_pil
         self.image = ImageTk.PhotoImage(self.imagePIL)
         Label.__init__(self, parent_window, image=self.image)
