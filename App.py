@@ -1,5 +1,6 @@
 from tkinter import *
 from screen.Home import Home
+from screen.Recognition import Recognition
 from Debug import *
 
 
@@ -7,6 +8,7 @@ class App(Tk):
     def __init__(self):
         Tk.__init__(self)
         self.content = Home(self)
+        #self.content = Recognition(self)
         self.content.grid(row=1, column=1)
         self.previous = []
         self.title("Stroke-Width Transform")

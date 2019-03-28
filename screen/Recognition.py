@@ -1,24 +1,35 @@
-from tkinter import Frame, Label, Button, SUNKEN, PhotoImage
+from tkinter import Frame, Label, Button, SUNKEN, PhotoImage, Text
+from datastruct.ImageLabel import ImageLabel
+from datastruct.ImageProcessor import ImageProcessor
+from PIL import Image
 
 
 class RecognitionController:
-    parent_window = None    # of type Tk
+    def __init__(self, parent_window)
+        self.parent_window      = parent_window    # of type Tk
+        self.image_processor    = ImageProcessor()
+        self.text_output        = None # of type Text, to display output
+        self.image_open         = Image.open("etc/example.png") # set the default input image
+        self.image_cc           = None
+        self.imagelabel_open    = None
+        self.imagelabel_cc      = None
+
+    def process_img(self, input_img):
+        self.
+
+
 
 
 class Recognition(Frame, RecognitionController):
     def __init__(self, parent_window):
         self.parent_window = parent_window
-        Frame.__init__(self, self.parent_window)
-        self.top_frame = Frame(self, height=2, bd=1, relief=SUNKEN)
-        self.bot_frame = Frame(self, height=2, bd=1, relief=SUNKEN)
-
-        label_rec 		= Label(self.top_frame, text="Recognition")
-        self.image_path = "etc/logo.png"
-        self.open_img 	= PhotoImage(file=self.image_path).subsample(1,1)
-        label_open_img 	= Label(self.top_frame, image=self.open_img)
-        label_open_img.photo = self.open_img
-
-        button_open = Button(self, text="Open...")
-
-        label_thinning 	= Label(self.bot_frame, text="1. Thinning")
-        label_segment 	= Label(self.bot_frame, text="2. segmentation")
+        Frame.__init__(self, self.parent_window, height=2, bd=1, relief=SUNKEN)
+        
+        # 
+        label_recognition 	= Label(self, text="Recognition")
+        self.imagelabel_open= ImageLabel(self, self.image_open)
+        button_open         = Button(self, text="Open...")
+        button_back         = Button(self, text="Back")
+        label_cc            = Label(self, text="1. Chain Code result")
+        self.imagelabel_cc  = ImageLabel
+        

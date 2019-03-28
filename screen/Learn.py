@@ -12,8 +12,8 @@ class LearnController:
         self.imageProcessor = None
         self.input_img = Image.open("etc/open.png")
         self.output_img = self.process_image(self.input_img)
-        self.label_output_img = None
-        self.label_input_img = None
+        self.imagelabel_output_img = None
+        self.imagelabel_input_img = None
         self.letter_name = None
         self.message = StringVar("")
         self.name_entry = Entry
@@ -33,8 +33,8 @@ class LearnController:
             self.message.set("opening "+image_filename)
             self.input_img = Image.open(image_filename)
             self.output_img = self.process_image(self.input_img)
-            self.label_input_img.change_image(self.input_img)
-            self.label_output_img.change_image(self.output_img)
+            self.imagelabel_input_img.change_image(self.input_img)
+            self.imagelabel_output_img.change_image(self.output_img)
             print("".join(self.imageProcessor.trimmed_image))
         except AttributeError:
             self.message = "user clicked cancel"
@@ -64,15 +64,15 @@ class Learn(Frame, LearnController):
         self.frame_input = Frame(self, height=2, bd=1, relief=SUNKEN)
         Label(self.frame_input, text="Input image").grid()
 
-        self.label_input_img = ImageLabel(self.frame_input, self.input_img)
-        self.label_input_img.grid()
+        self.imagelabel_input_img = ImageLabel(self.frame_input, self.input_img)
+        self.imagelabel_input_img.grid()
         Button(self.frame_input, text="Open image..", command=self.open_file).grid()
 
         # output frame and its widgets
         self.frame_output = Frame(self, height=2, bd=1, relief=SUNKEN)
         Label(self.frame_output, text="Output image").grid(row=0, column=0, columnspan=2)
-        self.label_output_img = ImageLabel(self.frame_output, self.output_img)
-        self.label_output_img.grid(row=1, column=0, columnspan=2)
+        self.imagelabel_output_img = ImageLabel(self.frame_output, self.output_img)
+        self.imagelabel_output_img.grid(row=1, column=0, columnspan=2)
         Label(self.frame_output, text="Letter name: ").grid(row=2, column=0, pady=15)
         self.name_entry = Entry(self.frame_output)
         self.name_entry.grid(row=2, column=1)
