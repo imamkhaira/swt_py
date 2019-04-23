@@ -45,3 +45,6 @@ class ImageProcessor:
         trimmed_letter = self.canny_image[y:y + h, x:x + w]
 
         return Image.fromarray(trimmed_letter)
+    
+    def get_canny(self):
+        return Image.fromarray(self.canny_image)

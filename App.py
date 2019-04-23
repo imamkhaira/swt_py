@@ -3,7 +3,6 @@ from screen.Home import Home
 from screen.Recognition import Recognition
 from Debug import *
 
-
 class App(Tk):
     def __init__(self):
         Tk.__init__(self)
@@ -11,7 +10,7 @@ class App(Tk):
         #self.content = Recognition(self)
         self.content.grid(row=1, column=1)
         self.previous = []
-        self.title("Stroke-Width Transform")
+        self.title("Eigen Shape & Chain Code Text Recognition")
         log("program started")
 
     def switch_frame(self, new_frame:Frame):
@@ -31,6 +30,4 @@ class App(Tk):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
-
-
 
